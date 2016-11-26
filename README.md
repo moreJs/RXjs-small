@@ -14,15 +14,17 @@
  ```js
     'use strict';
 
-    const Obserable = require();
-    obserable = new Obserable((observer) => {
+    const Observerable = require('rxjs-small');
+
+    
+    const observerable = new Observerable((observer) => {
         let initial = 1;
         setInterval(() => {
             observer.next(initial++);
         },1000);
     });
 
-    obserable.subscribe({
+    observerable.subscribe({
         next: value => console.log(`[value]=[${value}]`)
     });
  ```
