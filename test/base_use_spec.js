@@ -1,26 +1,46 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Obserable = require('../index');
+const Observerable = require('../index');
 
 describe('Obserable 对象的基本使用', () => {
-    let obserable = null;
+    let observerable = null;
 
     beforeEach(function() {
         // 在本区块的每个测试用例之前执行
-        obserable = new Obserable((observer) => {
+        observerable = new Observerable((observer) => {
             observer.next(1);
         });
     });
 
-    it('subscribe is ok', () => {
+    it('subscribe is ok', (done) => {
         let ret = null;
-        obserable.subscribe({
+        observerable.subscribe({
             next: value => ret = value
         });
         setTimeout(function() {
             expect(ret).to.be.equal(1);
+            done();
         }, 1);
+    });
+
+    it('errorFun is ok', (done) => {
+        let ret = null;
+        let errorMessage = null;
+        observerable = new Observerable((observer) => {
+            throw new Error('obserable makes something error');
+        });
+
+        observerable.subscribe({
+            next: value => ret = value,
+            error: error => errorMessage = error.message
+        });
+
+        setTimeout(function() {
+            expect(errorMessage).to.be.equal('obserable makes something error');
+            done();
+        }, 1);
+
     });
 });
 

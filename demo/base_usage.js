@@ -1,14 +1,21 @@
 'use strict';
 
-const Obserable = require('../index');
+const Observerable = require('../index');
 
-const obserable = new Obserable((observer) => {
+const observerable = new Observerable((observer) => {
     let initial = 1;
-    setInterval(() => {
+    let id = setInterval(() => {
         observer.next(initial++);
     },1000);
+    return () => {
+        clearInterval(id);
+    }
 });
 
-obserable.subscribe({
+observerable.subscribe({
     next: value => console.log(`[value]=[${value}]`)
 });
+
+setTimeout(function() {
+    observerable.unSubscribe();
+}, 5000);
