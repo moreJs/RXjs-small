@@ -1,6 +1,6 @@
 'use strict';
 
-const Observerable = require('../index');
+const Observerable = require('../../index').Observerable;
 
 const observerable = new Observerable((observer) => {
     let initial = 1;

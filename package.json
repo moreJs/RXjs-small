@@ -1,6 +1,6 @@
 {
   "name": "rxjs-small",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "精简版的RXjs",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/moreJs/RXjs-small#readme",
   "dependencies": {
+    "array.prototype.findindex": "^2.0.0",
     "is": "^3.2.0"
   },
   "devDependencies": {

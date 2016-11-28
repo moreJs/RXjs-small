@@ -1,6 +1,6 @@
 'use strict';
 
-const Observerable = require('../index');
+const Observerable = require('../../index').Observerable;
 
 const observerable = Observerable.from(['1','2','3','4','5']);
 

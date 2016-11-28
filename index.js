@@ -1,3 +1,3 @@
-const Observable = require('./lib');
+'use strict';
 
-module.exports = Observable;
+module.exports = require('./lib/');

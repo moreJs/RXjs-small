@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Observerable = require('../index');
+const Observerable = require('../index').Observerable;
 
 describe('Obserable 对象的基本使用', () => {
     let observerable = null;
