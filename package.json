@@ -1,6 +1,6 @@
 {
   "name": "rxjs-small",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "精简版的RXjs",
   "main": "index.js",
   "scripts": {

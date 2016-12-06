@@ -76,4 +76,9 @@ observerA: 3
 observerB: 3
 ```
 
+
+
+### todo list
+-  增加更多操作符,merge...等等
+-  更加深入一些
 ### 更多使用参考 demo 目录 
