@@ -8,7 +8,7 @@ describe('Obserable 对象的基本使用', () => {
 
     beforeEach(function() {
         // 在本区块的每个测试用例之前执行
-        observerable = new Observerable((observer) => {
+        observerable = new Observerable(observer => {
             observer.next(1);
         });
     });
@@ -38,6 +38,20 @@ describe('Obserable 对象的基本使用', () => {
 
         setTimeout(function() {
             expect(errorMessage).to.be.equal('obserable makes something error');
+            done();
+        }, 1);
+
+    });
+
+    it('map is ok', done => {
+        let ret = null;
+        observerable.map(value => ++value)
+                    .subscribe(value => 　{
+                        ret = value;
+                    });
+
+        setTimeout(function() {
+            expect(ret).to.be.equal(2);
             done();
         }, 1);
 
